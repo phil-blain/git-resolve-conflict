@@ -38,7 +38,7 @@ git-resolve-conflict() {
   git show :3:"$FILE_PATH" > ./tmp.theirs
 
   git merge-file "$STRATEGY" -p ./tmp.ours ./tmp.common ./tmp.theirs > "$FILE_PATH"
-  git add "$FILE_PATH"
+#  git add "$FILE_PATH"
 
   rm ./tmp.common
   rm ./tmp.ours
