@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git-resolve-conflict() {
+git_resolve_conflict() {
   STRATEGY="$1"
   FILE_PATH="$2"
 

@@ -3,8 +3,8 @@
 DIR1="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 if type readlink > /dev/null 2>&1 ; then
   # on unixes, npm install -g creates a symlink, we need to get real path of the other files
-  DIR2="$(dirname "$(readlink "$0")")"
-  DIR="${DIR1}/${DIR2}"
+  DIR2="$(dirname "$(readlink -f "$0")")"
+  DIR="${DIR2}"
 else
   # on windows/mingw there's no readlink, but npm install -g creates a special intermediary file
   DIR="${DIR1}"
@@ -12,4 +12,4 @@ fi
 
 source "${DIR}/../lib/git-resolve-conflict.sh"
 
-git-resolve-conflict "$@"
+git_resolve_conflict "$@"

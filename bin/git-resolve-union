@@ -15,4 +15,4 @@ source "${DIR}/../lib/git-resolve-conflict.sh"
 if [ -z "$1" ] ; then
   echo "Usage:   $(basename "$0") <file>"
 fi
-git-resolve-conflict --union "$@"
+git_resolve_conflict --union "$@"
