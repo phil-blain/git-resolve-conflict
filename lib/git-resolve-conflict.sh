@@ -10,6 +10,12 @@ git_resolve_conflict() {
     return
   fi
 
+  unmerged=$(git diff --name-only --diff-filter=U)
+
+  if [ $(echo "$unmerged" | wc -l) = 1 ]; then
+    FILE_PATH="$unmerged"
+  fi
+
   if [ -z "$FILE_PATH" ] || [ -z "$STRATEGY" ]; then
     echo "Usage:   git-resolve-conflict <strategy> <file>"
     echo ""
