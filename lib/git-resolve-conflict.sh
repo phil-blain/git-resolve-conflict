@@ -34,7 +34,7 @@ git_resolve_conflict() {
   # (otherwise if user input is './filename.txt' we would not match 'filename.txt')
   FILE_PATH_FOR_GREP=${FILE_PATH#./}
   # grep -Fxq: match string (F), exact (x), quiet (exit with code 0/1) (q)
-  if ! git diff --name-only --diff-filter=U | grep -Fxq "$FILE_PATH_FOR_GREP"; then
+  if ! git diff --name-only --diff-filter=U | grep -Fxq "$(git rev-parse --show-prefix)$FILE_PATH_FOR_GREP"; then
     echo "$FILE_PATH is not in conflicted state; aborting."
     return
   fi
