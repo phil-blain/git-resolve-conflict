@@ -39,7 +39,7 @@ git_resolve_conflict() {
     return
   fi
 
-  git show :1:"$FILE_PATH" > ./tmp.common
+  git show :1:"$FILE_PATH" > ./tmp.common 2> /dev/null
   git show :2:"$FILE_PATH" > ./tmp.ours
   git show :3:"$FILE_PATH" > ./tmp.theirs
 
